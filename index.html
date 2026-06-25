@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://assets.cdn.filesafe.space/Dkh0814KIhxmzHkNCSkp/media/69af5b5cb9be706cc823a892.jpg">
+  <script>
+    (function() {
+      var img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = 64; canvas.height = 64;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, 64, 64);
+        var d = ctx.getImageData(0, 0, 64, 64);
+        for (var i = 0; i < d.data.length; i += 4) {
+          if (d.data[i] < 40 && d.data[i+1] < 40 && d.data[i+2] < 40)
+            d.data[i+3] = 0;
+        }
+        ctx.putImageData(d, 0, 0);
+        document.querySelector("link[rel='icon']").href = canvas.toDataURL('image/png');
+      };
+      img.onerror = function() {}; // si hay CORS, queda el JPG original
+      img.src = 'https://assets.cdn.filesafe.space/Dkh0814KIhxmzHkNCSkp/media/69af5b5cb9be706cc823a892.jpg';
+    })();
+  </script>
+  <title>Masterclass Virtual Gratuita - Alto Contraste</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Opción 1: text-shadow en la palabra roja — funciona en todos los fondos, invisible sobre negro */
+    .surrealistas-highlight {
+      text-shadow:
+        0 2px 10px rgba(0,0,0,0.95),
+        0 0 25px rgba(0,0,0,0.85),
+        0 4px 20px rgba(0,0,0,0.9);
+    }
+
+    /* Opción 2: gradiente reforzado en la zona donde cae SURREALISTAS (solo móvil) */
+    @media (max-width: 1024px) {
+      .hero-mobile-overlay {
+        background: linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.45) 0%,
+          rgba(0,0,0,0.60) 35%,
+          rgba(0,0,0,0.80) 60%,  /* zona SURREALISTAS */
+          rgba(0,0,0,0.92) 100%
+        );
+      }
+    }
+
+    /* Opción 3: desplazar la imagen en móvil para sacar la lámpara del área del titular */
+    @media (max-width: 1024px) {
+      .hero-mobile-img {
+        object-position: 85% top;
+      }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1720701975624930');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1720701975624930&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body class="bg-black text-zinc-300 font-sans selection:bg-red-600 selection:text-white overflow-x-hidden">
+
+  <!-- HERO SECTION -->
+  <header class="relative bg-black flex flex-col lg:flex-row">
+
+    <!-- CONTENIDO HERO -->
+    <div class="relative z-20 w-full lg:w-1/2 flex flex-col justify-start lg:justify-center px-5 pt-4 pb-10 md:px-12 lg:pl-24 xl:pl-32 text-center lg:text-left">
+      <div class="max-w-2xl mx-auto lg:mx-0 pt-0">
+        <!-- Texto hero con imagen de fondo en móvil -->
+        <div class="relative lg:static -mx-5 lg:mx-0 overflow-hidden lg:overflow-visible mb-3 lg:mb-0">
+          <div class="absolute inset-0 lg:hidden">
+            <img src="tattoo-vision-2.JPG" alt="" class="w-full h-full object-cover hero-mobile-img">
+            <div class="absolute inset-0 hero-mobile-overlay"></div>
+          </div>
+          <div class="relative z-10 px-5 pt-2 pb-6 lg:px-0 lg:pt-0 lg:pb-0">
+            <p class="inline-block px-3 py-1 bg-red-900/30 border border-red-600/50 text-red-500 font-bold tracking-[0.2em] uppercase mb-6 text-xs md:text-sm rounded-full backdrop-blur-sm shadow-[0_0_15px_rgba(220,38,38,0.2)]">
+              Masterclass Virtual Gratuita
+            </p>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white uppercase leading-tight md:leading-tight mb-6 tracking-tight drop-shadow-xl">
+              Diseño y Técnica para Tatuajes <span class="text-red-600 surrealistas-highlight">Surrealistas</span>
+            </h1>
+
+            <p class="text-base sm:text-lg md:text-xl text-zinc-300 mb-4 leading-relaxed font-medium">
+              Conoce el paso a paso para transformar un concepto en un tatuaje surrealista sólido y funcional.
+            </p>
+
+            <p class="text-sm sm:text-base text-zinc-400 leading-relaxed">
+              Clase Virtual sin costo con <strong class="text-white">Hernán Yepes</strong>, artista internacional especializado en retratos surrealistas en Black & Grey. Accede a una clase exclusiva donde descubrirás cómo diseñar y aplicar técnicas que garantizan excelentes resultados al cicatrizar.
+            </p>
+          </div>
+        </div>
+
+        <!-- Formulario Captura (Optimizado móvil) -->
+        <div id="registro" class="bg-zinc-950/80 backdrop-blur-md border border-zinc-800 p-5 sm:p-6 pb-4 rounded-xl shadow-2xl max-w-md mx-auto lg:mx-0 text-left mt-5">
+          <div class="flex items-center gap-3 mb-3 bg-black/50 p-3 rounded-lg border border-zinc-800/50 justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600 shrink-0"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            <span class="font-bold text-white text-sm sm:text-base">Martes 14/07/2026 - 8:00 PM</span>
+          </div>
+
+          <iframe
+              src="https://api.leadconnectorhq.com/widget/form/u3UAHIGrpIgeKxbSHey6"
+              style="width:100%;height:461px;border:none;border-radius:4px;display:block;margin-top:-38px;margin-bottom:-100px;"
+              id="inline-u3UAHIGrpIgeKxbSHey6"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Lanzamiento 1 ORG"
+              data-height="461"
+              data-layout-iframe-id="inline-u3UAHIGrpIgeKxbSHey6"
+              data-form-id="u3UAHIGrpIgeKxbSHey6"
+              title="Lanzamiento 1 ORG"
+            ></iframe>
+          <div class="flex items-center justify-center gap-2 pt-1 pb-2">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+            </span>
+            <p class="text-zinc-400 text-xs sm:text-sm"><span id="social-proof-count" class="text-white font-bold"></span> colegas tatuadores ya están registrados</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- IMAGEN DESKTOP (columna derecha) -->
+    <div class="hidden lg:block lg:w-1/2 relative overflow-hidden min-h-[600px]"
+         style="mask-image: linear-gradient(to right, transparent 0%, black 22%, black 100%), linear-gradient(to top, transparent 0%, black 22%); mask-composite: intersect; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 22%, black 100%), linear-gradient(to top, transparent 0%, black 22%); -webkit-mask-composite: source-in;">
+      <img src="tattoo-vision-2.JPG" alt="Hernán Yepes" class="w-full h-full object-cover object-[center_top]" style="opacity: 0.82; filter: brightness(0.78) saturate(0.65);">
+    </div>
+
+  </header>
+
+  <!-- SECCIÓN 1: ¿Por qué este evento es diferente? -->
+  <section class="py-16 md:py-24 bg-zinc-950 border-t border-zinc-900">
+    <div class="container mx-auto px-5 max-w-5xl">
+      <div class="text-center mb-10 md:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 uppercase tracking-wider">¿Por qué este evento es <span class="text-red-600">diferente</span>?</h2>
+        <div class="w-16 h-1 bg-red-600 mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div class="flex gap-4 p-5 sm:p-6 bg-black border border-zinc-800 rounded-xl hover:border-zinc-700 transition-colors">
+          <div class="shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div>
+            <h3 class="text-white font-bold text-lg mb-2">No es teoría vacía</h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Verás el paso a paso que he aplicado en más de 50 proyectos de alto impacto.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-5 sm:p-6 bg-black border border-zinc-800 rounded-xl hover:border-zinc-700 transition-colors">
+          <div class="shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></div>
+          <div>
+            <h3 class="text-white font-bold text-lg mb-2">Funcionalidad real</h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Se enfoca en funcionalidad real sobre la piel para que perdure en el tiempo, no solo en un diseño bonito en papel.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-5 sm:p-6 bg-black border border-zinc-800 rounded-xl hover:border-zinc-700 transition-colors">
+          <div class="shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div>
+          <div>
+            <h3 class="text-white font-bold text-lg mb-2">Método replicable</h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Pensado para tatuadores en cualquier nivel que quieran evolucionar con un proceso consciente y estructurado.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-5 sm:p-6 bg-black border border-zinc-800 rounded-xl hover:border-zinc-700 transition-colors">
+          <div class="shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><path d="m2 2 20 20"/><path d="m8.5 8.5-1.5 1.5"/><path d="m15.5 15.5-1.5 1.5"/></svg></div>
+          <div>
+            <h3 class="text-white font-bold text-lg mb-2">Sin adornos innecesarios</h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Conocimiento técnico y claro: lo que aprendas aquí podrás aplicarlo en tu próximo tatuaje inmediatamente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: Lo que aprenderás -->
+  <section class="py-16 md:py-24 bg-black relative">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-red-900 to-transparent opacity-50"></div>
+    <div class="container mx-auto px-5 max-w-4xl">
+      <div class="text-center mb-10 md:mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-wider">Lo que aprenderás en la Sesión</h2>
+      </div>
+
+      <div class="space-y-6 md:space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-zinc-800 before:to-transparent">
+        
+        <!-- Modulo 1 -->
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-black bg-zinc-900 text-red-600 group-hover:bg-red-600 group-hover:text-white transition-colors shadow-[0_0_0_2px_rgba(220,38,38,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <span class="font-bold">1</span>
+          </div>
+          <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] p-5 sm:p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">Del Concepto al Boceto:<br><span class="text-red-500 text-lg sm:text-xl">El Método para diseñar piezas funcionales</span></h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Conocerás cómo traducir ideas y símbolos en un diseño claro y estético. Además del uso de referencias, composición y lectura visual para piezas surrealistas, mostrándote desde mi experiencia algunos errores comunes al diseñar y cómo evitarlos.</p>
+          </div>
+        </div>
+
+        <!-- Modulo 2 -->
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-black bg-zinc-900 text-red-600 group-hover:bg-red-600 group-hover:text-white transition-colors shadow-[0_0_0_2px_rgba(220,38,38,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <span class="font-bold">2</span>
+          </div>
+          <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] p-5 sm:p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 leading-tight">Del Boceto a la Piel:<br><span class="text-red-500 text-lg sm:text-xl">Aplicación técnica y Resultados</span></h3>
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Verás el proceso, preparación y aplicación sobre la piel; mostrando técnicas de contraste, reservas y saturación para resultados sólidos. Además de Consejos para que tu tatuaje cicatrice fuerte y mantenga impacto visual.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Fecha recordatorio -->
+      <div class="mt-12 text-center p-6 border border-zinc-800 bg-zinc-950 rounded-xl">
+        <p class="text-red-500 font-bold uppercase tracking-widest text-sm mb-2">No lo olvides</p>
+        <p class="text-xl sm:text-2xl text-white font-medium flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          Martes 14/07/2026 - 8:00 PM
+        </p>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#registro" class="inline-block w-full sm:w-auto px-8 py-5 bg-red-600 hover:bg-red-700 text-white font-black text-base sm:text-lg uppercase tracking-wider rounded-lg shadow-[0_0_20px_rgba(220,38,38,0.3)] transition-all transform hover:scale-105">
+          ¡Quiero Registrarme sin costo!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: ¿A quién está dirigido? -->
+  <section class="py-16 md:py-24 bg-zinc-950 border-t border-zinc-900">
+    <div class="container mx-auto px-5 max-w-4xl">
+      <div class="bg-black border border-zinc-800 rounded-2xl p-6 md:p-10 lg:p-12">
+        <h2 class="text-2xl md:text-4xl font-bold text-white mb-6 md:mb-8 text-center uppercase tracking-wide">Este evento virtual es para ti si eres:</h2>
+        
+        <ul class="space-y-4 md:space-y-6">
+          <li class="flex items-start gap-4">
+            <svg class="text-red-600 mt-1 shrink-0 w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <p class="text-lg sm:text-xl text-zinc-300">Un <strong class="text-white">tatuador que busca un proceso claro</strong> paso a paso y quiere mejorar en diseño y técnica surrealista.</p>
+          </li>
+          <li class="flex items-start gap-4">
+            <svg class="text-red-600 mt-1 shrink-0 w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <p class="text-lg sm:text-xl text-zinc-300">Un colega que desea <strong class="text-white">elevar la calidad</strong> de sus piezas de forma consistente.</p>
+          </li>
+          <li class="flex items-start gap-4">
+            <svg class="text-red-600 mt-1 shrink-0 w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <p class="text-lg sm:text-xl text-zinc-300">Un tatuador que comprende que <strong class="text-white">la técnica no se improvisa</strong> y se entrena con criterio.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: Quién es Hernán Yepes -->
+  <section class="py-16 md:py-24 bg-black">
+    <div class="container mx-auto px-5 max-w-5xl">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div class="order-2 lg:order-1 space-y-6">
+          <h2 class="text-3xl md:text-5xl font-bold text-white uppercase tracking-wider mb-2">
+            Quién es <span class="text-red-600">Hernán Yepes</span>
+          </h2>
+          <div class="w-16 h-1 bg-zinc-800 mb-6"></div>
+          
+          <ul class="space-y-4 text-zinc-400 text-base sm:text-lg">
+            <li class="flex items-start gap-3">
+              <span class="text-red-600 font-bold mt-1">•</span>
+              <span>Es un artista del tatuaje especializado en black & grey surrealista, con <strong class="text-white">más de 8 años de experiencia.</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-600 font-bold mt-1">•</span>
+              <span>Conocido en Latinoamérica, Estados Unidos y Europa con clientes internacionales.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-600 font-bold mt-1">•</span>
+              <span>Creador de Tattoo Vision, herramienta usada por <strong class="text-white">más de 3.000 tatuadores</strong> en el mundo.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-600 font-bold mt-1">•</span>
+              <span>Reconocido por su estilo técnico y narrativo en sus proyectos.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-600 font-bold mt-1">•</span>
+              <span>Formador de tatuadores de distintos países desde hace varios años.</span>
+            </li>
+          </ul>
+
+          <div class="mt-8 p-5 sm:p-6 bg-zinc-900 border-l-4 border-red-600 rounded-r-lg">
+            <p class="text-white font-medium italic text-lg sm:text-xl">
+              "Su misión: enseñar a otros Colegas Tatuadores a diseñar y ejecutar piezas surrealistas funcionales y con resultados sólidos."
+            </p>
+          </div>
+        </div>
+        
+        <div class="order-1 lg:order-2 w-full">
+          <img src="tattoo-vision-2x.JPG" alt="Hernán Yepes trabajando" class="w-full h-[350px] sm:h-[450px] lg:h-[600px] object-cover object-top rounded-xl shadow-[0_0_30px_rgba(220,38,38,0.15)] border border-zinc-800" style="filter: brightness(0.85);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5: Beneficios -->
+  <section class="py-12 md:py-20 bg-red-900/10 border-y border-red-900/20">
+    <div class="container mx-auto px-5 max-w-4xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 md:mb-12 uppercase tracking-wide">¿Qué beneficios obtienes al participar?</h2>
+      
+      <div class="grid sm:grid-cols-2 gap-6 md:gap-8">
+        <div class="bg-black border border-zinc-800 p-6 md:p-8 rounded-xl flex flex-col items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 mb-4"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+          <h3 class="text-white font-bold text-lg sm:text-xl mb-2">Acceso a Grabaciones</h3>
+          <p class="text-zinc-400 text-sm sm:text-base">Podrás repasar la clase completa, disponible solo por tiempo limitado posterior al evento.</p>
+        </div>
+        
+        <div class="bg-black border border-zinc-800 p-6 md:p-8 rounded-xl flex flex-col items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 mb-4"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><circle cx="10" cy="13" r="2"/><line x1="12" x2="16" y1="13" y2="13"/><circle cx="10" cy="17" r="2"/><line x1="12" x2="16" y1="17" y2="17"/></svg>
+          <h3 class="text-white font-bold text-lg sm:text-xl mb-2">Ejemplos Reales</h3>
+          <p class="text-zinc-400 text-sm sm:text-base">Análisis de proyectos de Hernán explicados paso a paso desde cero hasta la piel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6: Cierre y CTA Final -->
+  <section class="py-16 md:py-24 bg-black text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-black to-black"></div>
+    <div class="container mx-auto px-5 max-w-3xl relative z-10">
+      
+      <p class="text-xl sm:text-2xl md:text-3xl text-zinc-300 font-light mb-8 leading-relaxed">
+        Miles de tatuadores ya siguen a Hernán Yepes por su enfoque claro y técnico.
+      </p>
+      
+      <p class="text-base sm:text-lg text-zinc-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+        Y este es el momento ideal para conocer directamente de él lo que se puede lograr con disciplina, enfoque y metodología, en un evento exclusivo y abierto sin costo para <strong class="text-white">tatuadores comprometidos</strong> y que cuenten con tiempo.
+      </p>
+
+      <a href="#registro" class="inline-block w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 bg-red-600 hover:bg-red-700 text-white font-black text-lg sm:text-xl uppercase tracking-widest rounded-lg shadow-[0_0_30px_rgba(220,38,38,0.4)] transform hover:-translate-y-1 transition-all duration-300">
+        ¡Quiero Participar y Reservar mi cupo ahora!
+      </a>
+    </div>
+  </section>
+
+  <footer class="py-8 bg-zinc-950 border-t border-zinc-900 text-center">
+    <div class="container mx-auto px-5">
+      <div class="flex justify-center mb-6">
+        <img src="https://assets.cdn.filesafe.space/Dkh0814KIhxmzHkNCSkp/media/69af5b5cb9be706cc823a892.jpg" alt="Logo" class="h-8 sm:h-10 w-auto object-contain opacity-60">
+      </div>
+      <p class="text-xs sm:text-sm text-zinc-600">
+        &copy; 2026 Hernán Yepes. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+  <script>
+    (function() {
+      var base = 127;
+      var start = new Date('2026-06-18T20:00:00');
+      var msPerIncrement = 20 * 60 * 1000;
+      function getCount() {
+        var elapsed = Math.max(0, Date.now() - start.getTime());
+        return base + Math.floor(elapsed / msPerIncrement);
+      }
+      function update() {
+        var el = document.getElementById('social-proof-count');
+        if (el) el.textContent = getCount();
+      }
+      update();
+      setInterval(update, msPerIncrement);
+    })();
+  </script>
+</body>
+</html>
